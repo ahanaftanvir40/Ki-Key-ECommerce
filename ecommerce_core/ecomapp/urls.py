@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
-from ecomapp.views import*
 
+app_name = 'ecom'
 urlpatterns = [
-    path = ('', views.index, name ='index')
+    path('', views.home, name='index'),
+    path('<int:pk>/', views.ProductDetailView.as_view(), name='detail')
 ]
