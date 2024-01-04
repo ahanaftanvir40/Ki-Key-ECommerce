@@ -4,5 +4,6 @@ from . import views
 app_name = 'ecom'
 urlpatterns = [
     path('', views.home, name='index'),
-    path('<int:pk>/', views.ProductDetailView.as_view(), name='detail')
+    path('<int:pk>/', views.ProductDetailView.as_view(), name='detail'),
+    path('category/<str:foo>', views.category, name= 'category' ),
 ]
