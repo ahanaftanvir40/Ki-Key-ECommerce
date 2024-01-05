@@ -1,7 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import Product,Category
+from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.core.paginator import Paginator
+from django.contrib.auth import authenticate , login, logout
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from .forms import SignUpForm
+from django import forms
 # Create your views here.
 def home(request):
     product_objects = Product.objects.all()
@@ -46,3 +52,53 @@ def contact(request):
 
 def about(request):
     return render(request, 'ecom/about.html' )
+
+
+def login_page(request):
+
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        userExist = User.objects.filter(username = username)
+
+        if not userExist.exists():
+            messages.error(request, ("User doesn't exist"))
+            return redirect('ecom:login')
+        user = authenticate(username = username, password = password)
+
+        if user is None:
+            messages.error(request, 'Invalid Credentials')
+            return redirect('ecom:login')
+        else:
+            login(request, user)
+            return redirect('ecom:index')
+
+
+    return render(request, 'ecomapp/login.html')
+
+def logout_page(request):
+    logout(request)
+    return redirect('ecom:login')
+
+def register_user(request):
+    form = SignUpForm()
+
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+
+            user = authenticate(username = username, password = password)
+            login(request, user)
+            messages.success(request, ('You have registered successfully'))
+            return redirect('ecom:index')
+        else:
+            messages.success(request, ('There was a problem please try again'))
+            return redirect('ecom:register')
+
+    else:
+        return render(request, 'ecomapp/register.html', {'form': form})
