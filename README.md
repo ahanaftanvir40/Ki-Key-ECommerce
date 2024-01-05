@@ -34,6 +34,7 @@ Get relevant search results based on product names and descriptions.
 
 - **Django**
 - **Python**
+- **PostgreSQL**
 - **HTML**
 - **CSS** 
 - **Bootstrap** 
