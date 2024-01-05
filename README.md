@@ -1,22 +1,25 @@
-
+![image](https://github.com/ahanaftanvir40/Ki-Key-ECommerce/blob/main/project-image/ecommerce.PNG)
 ## কি- Key E-Commerce Website (Django)
-Welcome to কি- Key, an e-commerce website developed using Django. This fully functional website allows customers to explore a variety of products, add items to their shopping cart, and seamlessly place orders. Additionally, customers can browse products by category and use the search functionality to find specific items.
+Welcome to কি- Key, an e-commerce website developed using Django. This fully functional website allows users to register, log in, explore a variety of products, add items to their shopping cart, and seamlessly place orders. Additionally, users can browse products by category and use the search functionality to find specific items.
 
 ## Features
-- **Product Viewing**
+- **User Authentication:**
+Register a new account to create a personalized shopping experience.
+Log in securely to access account features.
+- **Product Viewing:**
 Browse a wide range of products on the website.
 View detailed information about each product, including images, descriptions, and prices.
-- **Shopping Cart**
+- **Shopping Cart:**
 Add products to the shopping cart.
 Adjust the quantity of items in the cart.
 Remove items from the cart.
-- **Order Placement**
+- **Order Placement:**
 Complete the checkout process to place an order.
 Provide shipping information during the order placement.
-- **Category Filtering**
+- **Category Filtering:**
 Explore products based on different categories.
 Navigate through a user-friendly interface for each category.
-- **Search Functionality**
+- **Search Functionality:**
 Use the search bar to find specific products efficiently.
 Get relevant search results based on product names and descriptions.
 ## Getting Started
