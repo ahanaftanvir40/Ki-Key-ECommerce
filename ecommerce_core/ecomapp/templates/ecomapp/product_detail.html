@@ -63,7 +63,7 @@
                             </button>
                         </div>
                     </div>
-                    <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To
+                    <button value="{{detail.id}}" id="add-cart" class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To
                         Cart</button>
                 </div>
                 <div class="d-flex pt-2">
@@ -155,4 +155,36 @@
     </div>
 </div>
 <!-- Shop Detail End -->
+
+
+<script>
+    //check button press
+    $(document).on('click' , '#add-cart', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '{% url 'cart_add' %}',
+            data: {
+                product_id: $('#add-cart').val(),
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post' 
+            },
+
+            success: function(json){
+                document.getElementById('cart-qty').textContent = json.quantity
+            },
+            error: function(xhr, errmsg, err){
+
+            }
+
+        });
+    })
+
+
+</script>
+
+
+
+
+
 {% endblock body %}

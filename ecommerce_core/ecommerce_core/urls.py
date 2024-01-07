@@ -21,7 +21,8 @@ from django.conf import settings
 urlpatterns = [
    
     path('admin/', admin.site.urls),
-     path('', include('ecomapp.urls')),
+    path('', include('ecomapp.urls')),
+    path('cart/', include('cart.urls')),
 ]
 
 urlpatterns += [

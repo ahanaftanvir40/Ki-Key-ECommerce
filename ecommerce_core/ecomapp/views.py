@@ -95,7 +95,7 @@ def register_user(request):
             user = authenticate(username = username, password = password)
             login(request, user)
             messages.success(request, ('You have registered successfully'))
-            return redirect('ecom:index')
+            return redirect('ecom:login')
         else:
             messages.success(request, ('There was a problem please try again'))
             return redirect('ecom:register')
