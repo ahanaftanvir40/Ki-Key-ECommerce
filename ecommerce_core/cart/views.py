@@ -9,6 +9,7 @@ def cart_home(request):
     #get cart
     cart = Cart(request)
 
+    #get the products
     cart_products = cart.get_products()
 
     return render(request, 'cart/cart.html', {'cart_products': cart_products} )
