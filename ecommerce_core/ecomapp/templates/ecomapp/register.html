@@ -1,32 +1,31 @@
 {% extends 'ecomapp/base.html' %}
 {% block title %}
-Register
+    Register
 {% endblock title %}
 
 {% block body %}
 <div class="container mt-5">
-
-    <form  method="POST" action="{% url 'ecom:register' %}" class="col-6 mx-auto card p-3 shadow-lg">
+    <form method="POST" action="{% url 'ecom:register' %}" class="col-md-6 col-sm-10 col-xs-12 mx-auto card p-3 shadow-lg">
         {% csrf_token %}
-        <h2>Login</h2>
+        <h2 class="text-center">Register</h2>
         <hr>
         {% if messages %}
-        {{ message.tags }}
-        <div class="alert alert-primary" role="alert">
-            {% for message in messages %}
-            {{ message }}
-            {% endfor %}
-
-        </div>
+            <div class="alert alert-primary" role="alert">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
         {% endif %}
 
+        {{ form.as_p }}
 
-        {{form.as_p}}
-        <br/><br/><br/><br/><br/><br/><br/><br/>
-        <button type="submit" class="btn btn-secondary">Register</button>
-        
+        <div class="mt-4">
+            <button type="submit" class="btn btn-secondary btn-block">Register</button>
+        </div>
     </form>
-
+</br></br></br></br></br>
+</br></br></br></br>
+</br></br></br></br>
+</br></br></br>
 </div>
-
 {% endblock %}

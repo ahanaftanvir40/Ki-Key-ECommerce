@@ -1,18 +1,16 @@
 {% extends 'ecomapp/base.html' %}
 {% block body %}
 <div class="container mt-5">
-    <form class="col-6 mx-auto card p-3 shadow-lg" method="POST" enctype="multipart/form-data">
+    <form class="col-md-6 col-sm-10 col-xs-12 mx-auto card p-3 shadow-lg" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <h2>Login</h2>
+        <h2 class="text-center">Login</h2>
         <hr>
         {% if messages %}
-        {{ message.tags }}
-        <div class="alert alert-primary" role="alert">
-            {% for message in messages %}
-            {{ message }}
-            {% endfor %}
-
-        </div>
+            <div class="alert alert-primary" role="alert">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
         {% endif %}
 
         <div class="form-group">
@@ -27,8 +25,12 @@
             <input type="password" class="form-control" name="password" id="exampleInputPassword1"
                 placeholder="Password">
         </div>
-        <p>Don't have an account? <a href="{% url 'ecom:register' %}">Register</a> </p>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <p class="text-center">Don't have an account? <a href="{% url 'ecom:register' %}">Register</a> </p>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
     </form>
+</br></br></br></br></br></br></br>
+</br></br></br></br></br>
+</br></br></br>
 </div>
+
 {% endblock %}
