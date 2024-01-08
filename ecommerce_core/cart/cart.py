@@ -1,3 +1,7 @@
+
+from ecomapp.models import Product
+
+
 class Cart():
     def __init__(self, request):
         self.session = request.session
@@ -28,3 +32,16 @@ class Cart():
 
     def __len__(self):
         return len(self.cart)
+    
+    def get_products(self):
+        #get prod ids
+        product_ids = self.cart.keys()
+
+        #use ids to look in DB
+
+        products_objects = Product.objects.filter(id__in =product_ids)
+
+        #return those prods
+
+        return products_objects
+

@@ -6,7 +6,12 @@ from django.http import JsonResponse
 # Create your views here.
 
 def cart_home(request):
-    return render(request, 'cart/cart.html', {} )
+    #get cart
+    cart = Cart(request)
+
+    cart_products = cart.get_products()
+
+    return render(request, 'cart/cart.html', {'cart_products': cart_products} )
 
 def cart_add(request):
     #get the cart
